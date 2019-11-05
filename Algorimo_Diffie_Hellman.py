@@ -1,29 +1,36 @@
+
+
 def algoritmo_Diffie_Hellman():
-    #z = n^x mod p
-    p=761
-    x=10
-    n=9857
+
+    p=98456837582149837574896713876468943674631573897892782758947597489573486973489578493768748967438957489375893476897468947368948363
+    x=47563477345748573453464234235235234234234235235234234234353534534534534
+    n=23145873568473895341058230498058304975094381694385094839869348609438189547509438509438610983049860934860934860934863487534897877
+    print ('Clave z privada:')
     z = ExpMod(n,x,p)
     print(z)
-    z = (Elevar(n,x) % p)
-    print (z)
 
-def Elevar(n,x):
-    numero=n
-    for i in range(1, x):
-        numero=numero*n
-    return numero
+    compartida=input()
+
+
+
+
+
 
 def ExpMod(a,n,z):
+    a=int(a)
+    n=int(n)
+    z=int(z)
+    r=1
+    r=int(r)
     if (n == 0):
         return 1
     else:
-        if ((n & 1) == 0):
+        if (n%2!=0):
             r=ExpMod(a,n-1,z)
             return ((a*r) % z)
         else:
             r=ExpMod(a,n/2,z)
-            return ((r*r) % r)
+            return ((r*r) % z)
 
 
 algoritmo_Diffie_Hellman()
